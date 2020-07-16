@@ -1,0 +1,29 @@
+#include<iostream>
+#include<algorithm>
+#include<string>
+#include<vector>
+#include <map>
+#include <sstream>
+#include <stack>
+#include <iomanip>
+using namespace std;
+int main() {
+	double p[7];
+	double plus = 1.0;
+	double sum = 0;
+	long long int i = 1;
+	int j = 0;
+	while (1)
+	{
+		if(i <= 7) cin >> p[j];
+		if (plus * p[j] * i < 0.00001) break;
+		sum += (plus * (p[j]/100.0) * i);
+		plus *= (1 - p[j] / 100.0);
+		j++;
+		j =j% 7;
+		i++;
+	}
+	cout << setiosflags(ios::fixed) << setiosflags(ios::right) << setprecision(6);
+	cout << sum << endl;
+	return 0;
+}
